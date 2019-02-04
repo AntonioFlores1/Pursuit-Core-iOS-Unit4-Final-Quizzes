@@ -29,6 +29,12 @@ class QuizzesViewController: UIViewController {
 extension QuizzesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        
+        guard let DetailVC = storyboard?.instantiateViewController(withIdentifier: "detailView") as? MyQuizzesDetailViewController else {return}
+        
+        DetailVC.detailInfo = ItemModel.getItems()
+        
+        
         navigationController?.pushViewController(MyQuizzesDetailViewController(), animated: true)
     }
 }

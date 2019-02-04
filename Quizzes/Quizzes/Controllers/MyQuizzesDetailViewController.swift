@@ -10,6 +10,8 @@ import UIKit
 
 class MyQuizzesDetailViewController: UIViewController {
     
+    var detailInfo = ItemModel.getItems()
+    
     let detailView = DetailView()
     
     override func viewDidLoad() {
@@ -28,7 +30,7 @@ extension MyQuizzesDetailViewController: UICollectionViewDelegate {
 
 extension MyQuizzesDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return detailInfo[section].
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

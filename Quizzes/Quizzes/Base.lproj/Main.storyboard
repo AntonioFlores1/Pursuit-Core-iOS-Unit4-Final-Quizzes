@@ -167,7 +167,7 @@
         <!--Quizzes View Controller-->
         <scene sceneID="9Er-N2-1Qw">
             <objects>
-                <viewController id="lKl-RO-pAV" customClass="QuizzesViewController" customModule="Quizzes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="comeHere" id="lKl-RO-pAV" customClass="QuizzesViewController" customModule="Quizzes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GKM-aK-61t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

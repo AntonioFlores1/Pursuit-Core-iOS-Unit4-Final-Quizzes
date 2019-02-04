@@ -44,10 +44,22 @@ class SearchViewController: UIViewController {
         }
     }
     
+   func createAlert (title: String, message: String)  {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print("Cancel")
+        }))
+      self.present(alert, animated: true, completion: nil)
+
+    }
 
 }
 
 extension SearchViewController: UICollectionViewDelegate {
+    
+    
     
 }
 extension SearchViewController: UICollectionViewDataSource {
