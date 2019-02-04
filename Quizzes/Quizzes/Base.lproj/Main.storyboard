@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9b-ON-3Wc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2065" y="450"/>
+            <point key="canvasLocation" x="2054" y="510"/>
         </scene>
         <!--Create Quiz-->
         <scene sceneID="BR8-iO-qWF">
@@ -33,35 +33,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Category " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="He5-Bi-tew">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Category " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="He5-Bi-tew">
                                 <rect key="frame" x="16" y="107" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MuK-nR-SAA">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MuK-nR-SAA">
                                 <rect key="frame" x="16" y="363" width="343" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="146" id="WDf-9U-xZ1"/>
+                                    <constraint firstAttribute="width" constant="343" id="jIh-jk-N1L"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-lS-47K">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-lS-47K">
                                 <rect key="frame" x="16" y="169" width="343" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="2Cv-5e-nPH"/>
+                                    <constraint firstAttribute="height" constant="146" id="zcY-va-GE7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MuK-nR-SAA" firstAttribute="top" secondItem="MDy-lS-47K" secondAttribute="bottom" constant="48" id="6dO-BU-dsT"/>
+                            <constraint firstItem="MuK-nR-SAA" firstAttribute="leading" secondItem="MQl-ym-mxZ" secondAttribute="leading" constant="16" id="8jG-bM-9F2"/>
+                            <constraint firstItem="He5-Bi-tew" firstAttribute="leading" secondItem="MQl-ym-mxZ" secondAttribute="leading" constant="16" id="NWa-yw-FmH"/>
+                            <constraint firstItem="MQl-ym-mxZ" firstAttribute="trailing" secondItem="He5-Bi-tew" secondAttribute="trailing" constant="16" id="Re3-b6-quz"/>
+                            <constraint firstItem="MDy-lS-47K" firstAttribute="top" secondItem="He5-Bi-tew" secondAttribute="bottom" constant="32" id="Zda-XZ-iVS"/>
+                            <constraint firstItem="He5-Bi-tew" firstAttribute="top" secondItem="MQl-ym-mxZ" secondAttribute="top" constant="43" id="k9Y-87-gRH"/>
+                            <constraint firstItem="MQl-ym-mxZ" firstAttribute="trailing" secondItem="MDy-lS-47K" secondAttribute="trailing" constant="16" id="r7g-rw-fOC"/>
+                            <constraint firstItem="MDy-lS-47K" firstAttribute="leading" secondItem="MQl-ym-mxZ" secondAttribute="leading" constant="16" id="tMG-Ud-i5I"/>
+                            <constraint firstItem="MQl-ym-mxZ" firstAttribute="trailing" secondItem="MuK-nR-SAA" secondAttribute="trailing" constant="16" id="weQ-ar-dgJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MQl-ym-mxZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Quiz" id="rhu-jn-RMa">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Seh-lH-WEr"/>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="7Hj-Yh-5tO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Seh-lH-WEr">
+                            <connections>
+                                <action selector="Cancel:" destination="FPt-KP-MX2" id="mqc-Z5-O28"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="7Hj-Yh-5tO">
+                            <connections>
+                                <action selector="CreateItem:" destination="FPt-KP-MX2" id="gQ3-YU-TGZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="CreateFactPlaceHolder1" destination="MDy-lS-47K" id="kYG-Cb-38v"/>
+                        <outlet property="CreateFactPlaceHolder2" destination="MuK-nR-SAA" id="Cq8-QE-lu4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1R-6A-zJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,19 +102,70 @@
                     <view key="view" contentMode="scaleToFill" id="S4r-EA-eaC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rga-dF-YP0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="157"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profileCell" rowHeight="133" id="oOd-Bh-BAV" customClass="ProfileTableViewCell" customModule="Quizzes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="133"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oOd-Bh-BAV" id="Feh-BB-7V8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="132.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vF-fI-8jZ">
+                                                    <rect key="frame" x="158" y="130" width="59" height="63"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="63" id="ETm-I4-2YZ"/>
+                                                        <constraint firstAttribute="width" constant="59" id="zIr-7a-vl5"/>
+                                                    </constraints>
+                                                    <state key="normal" image="profileImage"/>
+                                                </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8HI-hl-KN2">
+                                                    <rect key="frame" x="116" y="211" width="143" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6vF-fI-8jZ" firstAttribute="top" secondItem="Feh-BB-7V8" secondAttribute="top" constant="130" id="KLb-Bj-Nbs"/>
+                                                <constraint firstItem="8HI-hl-KN2" firstAttribute="leading" secondItem="Feh-BB-7V8" secondAttribute="leadingMargin" constant="101" id="fPi-8M-deP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="8HI-hl-KN2" secondAttribute="trailing" constant="101" id="oSc-mN-QiD"/>
+                                                <constraint firstItem="6vF-fI-8jZ" firstAttribute="centerX" secondItem="8HI-hl-KN2" secondAttribute="centerX" id="pbg-fT-Mn5"/>
+                                                <constraint firstItem="8HI-hl-KN2" firstAttribute="top" secondItem="6vF-fI-8jZ" secondAttribute="bottom" constant="18" id="tRF-YD-c6V"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textFIeld" destination="8HI-hl-KN2" id="cEH-eq-ZMX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rga-dF-YP0" firstAttribute="top" secondItem="k9T-2i-Am2" secondAttribute="top" id="8la-8h-U2C"/>
+                            <constraint firstItem="rga-dF-YP0" firstAttribute="leading" secondItem="S4r-EA-eaC" secondAttribute="leading" id="Erq-fS-eHi"/>
+                            <constraint firstItem="k9T-2i-Am2" firstAttribute="bottom" secondItem="rga-dF-YP0" secondAttribute="bottom" constant="397" id="Gvh-bA-en4"/>
+                            <constraint firstAttribute="trailing" secondItem="rga-dF-YP0" secondAttribute="trailing" id="cg9-kg-ss6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="k9T-2i-Am2"/>
                     </view>
                     <navigationItem key="navigationItem" id="2hr-A5-qT9"/>
+                    <connections>
+                        <outlet property="tableView" destination="rga-dF-YP0" id="BUI-rm-ihh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7M-ig-JTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2064.8000000000002" y="1992.953523238381"/>
         </scene>
-        <!--My Quizzes Detail View Controller-->
+        <!--Quizzes View Controller-->
         <scene sceneID="9Er-N2-1Qw">
             <objects>
-                <viewController id="lKl-RO-pAV" customClass="MyQuizzesDetailViewController" customModule="Quizzes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lKl-RO-pAV" customClass="QuizzesViewController" customModule="Quizzes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GKM-aK-61t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,6 +177,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnz-W8-GHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2054" y="-213"/>
+        </scene>
+        <!--My Quizzes Detail View Controller-->
+        <scene sceneID="cz1-Rg-e5b">
+            <objects>
+                <viewController id="m2V-0F-DjA" customClass="MyQuizzesDetailViewController" customModule="Quizzes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4dx-T5-8WO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="LE0-bD-Onb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qbb-UI-OmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3217" y="-214"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="DlI-Sx-slJ">
@@ -123,7 +217,7 @@
         <scene sceneID="Tmj-2J-Ceu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gvi-sw-7Lw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Quizzes" id="Oe3-MI-Maa"/>
+                    <tabBarItem key="tabBarItem" title="Quizzes" image="quiz-icon" selectedImage="quiz-icon" id="Oe3-MI-Maa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2fL-DU-wuD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -142,7 +236,7 @@
         <scene sceneID="eBK-9j-hhT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nij-8D-W6i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="E0N-03-Yyi"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="icons8-search-25" selectedImage="icons8-search-25" id="E0N-03-Yyi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jm0-dC-GPe">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -161,7 +255,7 @@
         <scene sceneID="2WT-tu-QjN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wFn-hi-DxC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Create" id="oqj-se-vXY"/>
+                    <tabBarItem key="tabBarItem" title="Create" image="create-icon" selectedImage="create-icon" id="oqj-se-vXY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t67-tD-SF9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -180,7 +274,7 @@
         <scene sceneID="Vgg-Ld-ON0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F2O-ap-XkF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="ocR-qa-0Dj"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-unfilled" selectedImage="profile-unfilled" id="ocR-qa-0Dj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qcf-SC-avf">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -196,4 +290,11 @@
             <point key="canvasLocation" x="186" y="1993"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="create-icon" width="18.75" height="18.75"/>
+        <image name="icons8-search-25" width="18.75" height="18.75"/>
+        <image name="profile-unfilled" width="24" height="24"/>
+        <image name="profileImage" width="40" height="40"/>
+        <image name="quiz-icon" width="18.75" height="18.75"/>
+    </resources>
 </document>

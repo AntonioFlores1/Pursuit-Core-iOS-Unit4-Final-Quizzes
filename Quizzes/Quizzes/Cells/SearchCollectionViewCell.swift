@@ -14,31 +14,35 @@ class SearchCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Hello I Work"
         label.textAlignment = .center
-        label.backgroundColor = .green
         label.numberOfLines = 3
         return label
     }()
     
     lazy var plusButton: UIButton = {
         let button = UIButton()
-       // button.titleLabel?.text = "Plus"
         button.setImage(UIImage.init(named: "add-icon-filled"), for: .normal)
-       // button.backgroundColor = .orange
+        button.addTarget(self, action: #selector(buttonStuff), for: .touchUpInside )
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .green
-//        addSubview(quizLabel)
-//        addSubview(plusButton)
+        self.backgroundColor = .white
         setUpConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func buttonStuff() {
+    
+    let quizViewController = QuizzesViewController()
+     
+    
+    }
+    
     
     func setUpConstraints(){
         addSubview(quizLabel)

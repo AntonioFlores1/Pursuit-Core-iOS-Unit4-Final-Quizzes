@@ -17,7 +17,7 @@ class SearchView: UIView {
         layout.itemSize = CGSize.init(width: 300, height: 340)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         layout.scrollDirection = .vertical
         return collectionView
     }()

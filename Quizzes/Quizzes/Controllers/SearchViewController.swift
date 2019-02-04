@@ -23,11 +23,14 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.view.backgroundColor = .green 
+      self.view.backgroundColor = .green
       self.view.addSubview(searchView)
       searchView.SearchCollectionView.dataSource = self
       searchView.SearchCollectionView.delegate = self
         quizInfo()
+        print("HI")
+    print(DataPersistenceManager.documentsDirectory())
+
     }
     
     func quizInfo(){

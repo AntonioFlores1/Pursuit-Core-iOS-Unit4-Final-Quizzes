@@ -16,10 +16,10 @@ final class QuizFactsAPI{
                 completionHandler(appError,nil)
             } else if let factsB = factsB {
                 do {
-                    let facts = try JSONDecoder().decode([FactModels].self,from: factsB)
+    let facts = try JSONDecoder().decode([FactModels].self,from: factsB)
                     completionHandler(nil,facts)
                 } catch {
-                    completionHandler(AppError.jsonDecodingError(error),nil)
+        completionHandler(AppError.jsonDecodingError(error),nil)
                 }
                 
             }

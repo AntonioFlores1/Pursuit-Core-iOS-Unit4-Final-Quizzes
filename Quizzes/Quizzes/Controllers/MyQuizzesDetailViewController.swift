@@ -9,22 +9,37 @@
 import UIKit
 
 class MyQuizzesDetailViewController: UIViewController {
-
+    
+    let detailView = DetailView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-self.view.backgroundColor = .red
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .red
+        self.view.addSubview(detailView)
+        detailView.DetailColletionView.dataSource = self
+        detailView.DetailColletionView.delegate = self
     }
     
+    
+}
+extension MyQuizzesDetailViewController: UICollectionViewDelegate {
+    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension MyQuizzesDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
+guard let cell = detailView.DetailColletionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath) as? DetailCollectionViewCell else {return UICollectionViewCell() }
+        
+        
+        
+        
+        return cell
+    }
+    
+    
 }

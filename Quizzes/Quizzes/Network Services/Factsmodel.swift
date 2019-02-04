@@ -11,6 +11,6 @@ import Foundation
 struct FactModels: Codable {
     let id: String
     let quizTitle: String
-    //let facts: [String]
+    let facts: [String]
 }
 
