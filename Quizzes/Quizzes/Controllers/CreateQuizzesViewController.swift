@@ -9,35 +9,72 @@
 import UIKit
 
 class CreateQuizzesViewController: UIViewController {
+    
+    private var funFactHolderUno = "Fun fact 1"
+    private var funFactHolerDos = "Fun fact 2"
 
-    private var CreatFactPlaceHolder1 = "Please Insert Fact 1"
-    private var CreatFactPlaceHolder2 = "Please Insert Fact 2"
+    @IBOutlet weak var category: UITextField!
     
-    @IBOutlet weak var CreateFactPlaceHolder1: UITextView!
+    @IBOutlet weak var funFactUno: UITextView!
     
-    @IBOutlet weak var CreateFactPlaceHolder2: UITextView!
+    @IBOutlet weak var funFactDos: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     self.view.backgroundColor = .yellow
-    CreateFactPlaceHolder1.delegate = self
-    CreateFactPlaceHolder2.delegate = self
-    CreateFactPlaceHolder1.text = CreatFactPlaceHolder1
-    CreateFactPlaceHolder2.text = CreatFactPlaceHolder1
-    CreateFactPlaceHolder1.textColor = .black
-    CreateFactPlaceHolder2.textColor = .black
-    print(DataPersistenceManager.documentsDirectory())
+    //category.becomeFirstResponder()
+        TextViewSetUp()
     }
     
-    @IBAction func Cancel(_ sender: UIBarButtonItem) {
-      //  dismiss(animated: true, completion: nil)
+   func TextViewSetUp(){
+    category.delegate = self
+    funFactUno.delegate = self
+    funFactDos.delegate = self
+    funFactUno.text = funFactHolderUno
+    funFactDos.text = funFactHolerDos
+    funFactUno.textColor = .black
+    funFactDos.textColor = .black
+    }
+
+    func createAlert (title: String, message: String)  {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print("Cancel")
+        }))
+        
+//        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
+//            alert.dismiss(animated: true, completion: nil)
+//            print("Confirm")
+//        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func CreateItem(_ sender: UIBarButtonItem) {
-    guard let itemTitle = CreateFactPlaceHolder1.text,
-    let itemDescription = CreateFactPlaceHolder2.text else {
-                fatalError("Title, Description nil")
+    func secondAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+            print("Cancel")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    @IBAction func cencelPressed(_ sender: UIBarButtonItem) {
+//navigationController?.pushViewController(QuizzesViewController(), animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func createPressed(_ sender: UIBarButtonItem) {
+        guard let itemTitle = category.text,
+            let otherItemDescription = funFactUno.text,
+            let itemDescription = funFactDos.text else {
+                fatalError("title, description nil")
         }
+        
+        // timestamp base on the current time
         let date = Date()
         let isoDateFormatter = ISO8601DateFormatter()
         isoDateFormatter.formatOptions = [.withFullDate,
@@ -46,20 +83,42 @@ class CreateQuizzesViewController: UIViewController {
                                           .withTimeZone,
                                           .withDashSeparatorInDate]
         let timestamp = isoDateFormatter.string(from: date)
-        let item = Item.init(title: itemTitle, description: itemDescription, createdAt: timestamp)
+        
+        if category?.text == "" || funFactUno?.text == "" || funFactDos?.text == "" || funFactUno.text == funFactHolderUno || funFactDos.text == funFactHolerDos {
+            createAlert(title: "Flash Card Notification", message: "Have To Fill Out All Requirments")
+        } else {
+        // create an item
+        let item = Item.init(title: itemTitle, description: otherItemDescription, otherDescription: itemDescription, createdAt: timestamp)
+        
+        // save item to documents directory
         ItemModel.addItem(item: item)
+navigationController?.pushViewController(QuizzesViewController(), animated: true)
+    secondAlert(title: "Heya", message: "Your flash card has been succesfully added to your quizzes")
+
         dismiss(animated: true, completion: nil)
+        }
     }
-}
+        
+    }
 extension CreateQuizzesViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-    if CreateFactPlaceHolder1.text == CreatFactPlaceHolder1 {
-            textView.text = ""
-            textView.textColor = .black
+        
+        if funFactUno.text == funFactHolderUno {
+          textView.text = ""
+          textView.textColor = .black
+          //funFactUno.resignFirstResponder()
         }
-    if CreateFactPlaceHolder2.text == CreatFactPlaceHolder2 {
-            textView.text = ""
-            textView.textColor = .black
+        if funFactDos.text == funFactHolerDos {
+          textView.text = ""
+          textView.textColor = .black
+            //funFactDos.resignFirstResponder()
         }
+}
+}
+
+extension CreateQuizzesViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        category.resignFirstResponder()
+        return true
     }
 }

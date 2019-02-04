@@ -7,11 +7,8 @@
 //
 
 import Foundation
-
 final class ItemModel {
-    
-    private static let fileName = "Searchinfo.plist"
-    
+    private static let fileName = "SearchList.plist"
     private static var items = [Item]()
     
     static func getItems() -> [Item] {

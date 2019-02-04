@@ -17,9 +17,13 @@ class QuizzesViewController: UIViewController {
   self.view.addSubview(quizView)
   quizView.QuizCollectionView.dataSource = self
   quizView.QuizCollectionView.delegate = self
-  //print(DataPersistenceManager.documentsDirectory())
+    print(DataPersistenceManager.documentsDirectory())
   }
 
+    override func viewWillAppear(_ animated: Bool) {
+     quizView.QuizCollectionView.reloadData()
+    }
+    
 }
 
 extension QuizzesViewController: UICollectionViewDelegate {
@@ -31,11 +35,14 @@ extension QuizzesViewController: UICollectionViewDelegate {
 
 extension QuizzesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return ItemModel.getItems().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-let cell = quizView.QuizCollectionView.dequeueReusableCell(withReuseIdentifier: "quizCell", for: indexPath)
+        
+       guard let cell = quizView.QuizCollectionView.dequeueReusableCell(withReuseIdentifier: "quizCell", for: indexPath) as? QuizCollectionViewCell else {return UICollectionViewCell()}
+        let item = ItemModel.getItems()[indexPath.row]
+        cell.Quizlabel.text = item.title
         
         return cell
     }

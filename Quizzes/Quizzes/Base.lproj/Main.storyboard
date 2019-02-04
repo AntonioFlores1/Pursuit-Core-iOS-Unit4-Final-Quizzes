@@ -77,18 +77,20 @@
                     <navigationItem key="navigationItem" title="Create Quiz" id="rhu-jn-RMa">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Seh-lH-WEr">
                             <connections>
-                                <action selector="Cancel:" destination="FPt-KP-MX2" id="mqc-Z5-O28"/>
+                                <action selector="cencelPressed:" destination="FPt-KP-MX2" id="216-9O-eTE"/>
+                                <segue destination="ZMM-0f-0vx" kind="showDetail" id="cbZ-rS-lmQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Create" id="7Hj-Yh-5tO">
                             <connections>
-                                <action selector="CreateItem:" destination="FPt-KP-MX2" id="gQ3-YU-TGZ"/>
+                                <action selector="createPressed:" destination="FPt-KP-MX2" id="xYH-Yq-9g7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="CreateFactPlaceHolder1" destination="MDy-lS-47K" id="kYG-Cb-38v"/>
-                        <outlet property="CreateFactPlaceHolder2" destination="MuK-nR-SAA" id="Cq8-QE-lu4"/>
+                        <outlet property="category" destination="He5-Bi-tew" id="sBr-rA-Vh6"/>
+                        <outlet property="funFactDos" destination="MuK-nR-SAA" id="wNN-GF-kDb"/>
+                        <outlet property="funFactUno" destination="MDy-lS-47K" id="uVw-sq-irE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1R-6A-zJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
